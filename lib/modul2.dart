@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart ';
+import 'package:prak_mobile/modul.dart';
 import 'package:prak_mobile/profile_view.dart';
 
 class Home extends StatefulWidget {
@@ -35,10 +36,19 @@ class _HomeState extends State<Home> {
 
   _botNavBar() {
     return BottomNavigationBar(
-      items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-        BottomNavigationBarItem(icon: Icon(Icons.business), label: 'College'),
-        BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile')
+      items: [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.business),
+          label: 'College',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.person),
+          label: 'Profile',
+        ),
       ],
       currentIndex: _index,
       selectedItemColor: Colors.blue,

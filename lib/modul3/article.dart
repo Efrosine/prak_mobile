@@ -23,7 +23,7 @@ class Article extends StatelessWidget {
 
   _body() {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(8.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -31,11 +31,15 @@ class Article extends StatelessWidget {
             width: double.maxFinite,
             child: Image.asset(
               'image/image.jpg',
+              fit: BoxFit.fill,
             ),
           ),
           Text(
             'Ini Judul',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           Text('5.0⭐⭐⭐⭐⭐'),
           Text('wikipedia'),
