@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart%20';
 import 'package:prak_mobile/modul4/model.dart';
+import 'package:prak_mobile/modul5/detail.dart';
 
 class ShopingView extends StatelessWidget {
   const ShopingView({super.key});
@@ -66,47 +67,58 @@ class ListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-        clipBehavior: Clip.antiAlias,
-        margin: EdgeInsets.symmetric(vertical: 8),
-        elevation: 2,
-        child: Row(
-          // crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              width: MediaQuery.of(context).size.width / 3,
-              height: MediaQuery.of(context).size.width / 2.7,
-              child: Image.asset(
-                model.url,
-                fit: BoxFit.cover,
-              ),
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(model.title,
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                    Text(model.subtitle),
-                    // Expanded(child: Container()),
-                    SizedBox(
-                      height: 24,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      mainAxisSize: MainAxisSize.max,
-                      children: [ButtonCount(), Text('\$40')],
-                    ),
-                  ],
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => DetailsWidget(model: model),
+            ));
+      },
+      child: Card(
+          clipBehavior: Clip.antiAlias,
+          margin: EdgeInsets.symmetric(vertical: 8),
+          elevation: 2,
+          child: Row(
+            children: [
+              SizedBox(
+                width: MediaQuery.of(context).size.width / 3,
+                height: MediaQuery.of(context).size.width / 2.7,
+                child: Image.asset(
+                  model.url,
+                  fit: BoxFit.cover,
                 ),
               ),
-            ),
-          ],
-        ));
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(model.title,
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          )),
+                      Text(model.subtitle),
+                      // Expanded(child: Container()),
+                      SizedBox(
+                        height: 24,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisSize: MainAxisSize.max,
+                        children: [ButtonCount(), Text('\$40')],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          )),
+    );
   }
 }
 
