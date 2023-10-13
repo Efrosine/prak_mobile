@@ -76,6 +76,7 @@ class ListWidget extends StatelessWidget {
             ));
       },
       child: Card(
+          //... akhir code sama seperti praktikum sebelumnya
           clipBehavior: Clip.antiAlias,
           margin: EdgeInsets.symmetric(vertical: 8),
           elevation: 2,
